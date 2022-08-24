@@ -1,0 +1,98 @@
+<app-navbar></app-navbar>
+<main class="padding_top background">
+<!-- user info starts --> 
+<section class="user_info">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xl-12 col-xxl-12">
+      <h4 class="txt-blue">
+        <span class="box-icon img_bg mx-1"
+              ><i class="bi bi-person-circle text-white"></i
+            ></span>Welcome {{username}}!</h4>
+      <p>Elevate your audits in a single go.</p>
+    </div>
+  </div>
+</div>
+</section>
+<!-- user info ends --> 
+
+<!-- dashboard cards starts --> 
+<section class="dashboard_card">
+<div class="container-fluid">
+<div class="row">
+<div class="col-lg-6">
+  <div class="card img_bg">
+    <div class="card-body padding">
+  <img src="assets/img/home.png" class="img-fluid" alt="team_img">
+</div>
+</div>
+</div>
+<div class = "col-lg-6 v-center">
+  <h4 class="txt-blue">Your projects status</h4>
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="col-xl-4 text-center">
+      <div class="card bg-green">
+        <!-- <img src="assets/img/green.png" class="card-img-top rag_width pt-1" alt="..."> -->
+        <div class="d-block text-center py-2">
+          <span class="round">
+            <i class="bi bi-check2-circle text-white"></i>
+          </span>
+        </div>
+        <div class="card-body p-1">
+          <a class="card-title mb-0 text-white" (click)='getDetails("GREEN")'>GREEN</a>
+          <p class="card-text card-font blink text-white py-2">{{gcount}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-4 text-center">
+      <div class="card bg-amber">
+        <!-- <img src="assets/img/amber.png" class="card-img-top rag_width_amber pt-1" alt="..."> -->
+        <div class="d-block text-center py-2">
+          <span class="round">
+            <i class="bi bi-info-circle text-white"></i>
+          </span>
+        </div>
+        <div class="card-body p-1">
+          <a class="card-title mb-0 text-white" (click)='getDetails("AMBER")'>AMBER</a>
+          <p class="card-text card-font blink text-white py-2">{{acount}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-4 text-center">
+      <div class="card bg-red">
+        <!-- <img src="assets/img/red.png" class="card-img-top rag_width pt-1" alt="..."> -->
+        <div class="d-block text-center py-2">
+          <span class="round">
+            <i class="bi bi-x-circle-fill text-white"></i>
+          </span>
+        </div>
+        <div class="card-body p-1">
+          <a class="card-title mb-0 text-white" (click)='getDetails("RED")'>RED</a>
+          <p class="card-text card-font blink text-white py-2">{{rcount}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-12 mb-0">
+      <div class="card info-bg">
+        <div class="card-body">
+          <p class="text-success mb-1"><span class="box-icon bg-green mx-1"
+            ><i class="bi bi-check2-circle text-white"></i
+          ></span>Projects that requires no remedial action</p>
+          <p class="text-warning mb-1"><span class="box-icon bg-amber mx-1"
+            ><i class="bi bi-info-circle text-white"></i
+          ></span>Projects that requires minor remedial action to improve score</p>
+          <p class="text-danger mb-1"><span class="box-icon bg-red mx-1"
+            ><i class="bi bi-x-circle-fill text-white"></i
+          ></span>Projects that requires major remedial action to improve score</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</section>
+<!-- dashboard cards ends --> 
+<app-footer></app-footer>
+</main>
+     

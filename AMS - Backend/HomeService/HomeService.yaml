@@ -1,0 +1,33 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: homeservice-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: HomeService
+  template:
+    metadata:
+      labels:
+        app: HomeService
+    spec:
+      containers:
+      - name:  homeserviceamscr
+        image: homeserviceamscr.azurecr.io/homeserviceimage:latest
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+      - name: webapisvcsecret
+ 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: homeservicesvc
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: HomeService

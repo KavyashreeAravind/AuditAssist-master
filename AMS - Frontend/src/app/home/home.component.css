@@ -1,0 +1,41 @@
+.rag_width {
+    width: 80px;
+  }
+  .rag_width_amber {
+    width: 75px;
+  }
+  /* .background {
+    background: #fafafa;
+  } */
+  .card-font {
+    font-size: 30px !important;
+    /* padding-top: 2rem; */
+  }
+  
+  .padding {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  .blink {
+    animation: blink 1s linear infinite;
+  }
+  
+  @keyframes blink {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .v-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }

@@ -1,0 +1,95 @@
+<app-navbar></app-navbar>
+<div class="container-fluid margin_top">
+    <div class="card">
+    <div class="card-body">
+    <div class="row">
+      <div *ngIf = "isGreen()" class="col-md-3 v-center">
+        <img src="assets/img/green-status.png" class="img-fluid rounded-start" alt="...">
+        <p>Project details with status Green</p>
+      </div>
+      <div *ngIf = "isAmber()" class="col-md-3 v-center">
+        <img src="assets/img/amber-status.png" class="img-fluid rounded-start" alt="...">
+        <p>Project details with status Amber</p>
+      </div>
+      <div *ngIf = "isRed()" class="col-md-3 v-center">
+        <img src="assets/img/red-status.png" class="img-fluid rounded-start" alt="...">
+        <p>Project details with status Red</p>
+      </div>
+      <div class="col-md-9">
+          <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource" matSort>
+          
+              <!-- ID Column -->
+              <ng-container matColumnDef="#">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> # </th>
+                <td mat-cell *matCellDef="let row;let i=index"> {{i+1}}<td>
+              </ng-container>
+          
+              <!-- Project Name Column -->
+              <ng-container matColumnDef="projectName">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Project Name</th>
+                <td mat-cell *matCellDef="let row"> {{row?.projectName}} </td>
+              </ng-container>
+          
+              <!-- Application Owner Name Column -->
+              <ng-container matColumnDef="applicationOwnerName">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Application Owner Name </th>
+                <td mat-cell *matCellDef="let row"> {{row?.applicationOwnerName}} </td>
+              </ng-container>
+          
+              <!-- Audit Date and time Column -->
+              <ng-container matColumnDef="auditDate">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Audit Date and time </th>
+                <td mat-cell *matCellDef="let row"> {{row?.auditDate | date:'dd-MM-yyyy hh:mm:ss a':'+0530'}} </td>
+              </ng-container>
+
+               <!-- Audit Date and time Column -->
+               <ng-container matColumnDef="auditType">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Audit Type </th>
+                <td mat-cell *matCellDef="let row"> {{row?.auditType}} </td>
+              </ng-container>
+
+               <!-- Audit Date and time Column -->
+               <ng-container matColumnDef="remedialActionDuration">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Remedial Action Duration </th>
+                <td mat-cell *matCellDef="let row"> {{row?.remedialActionDuration}} </td>
+              </ng-container>
+          
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          
+              <!-- Row shown when there is no matching data. -->
+            </table>
+          
+            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+          </div>
+          
+    </div>
+</div>
+</div>
+</div>
+
+
+<!-- <table class="card-text table table-hover" id="list">
+  <thead>
+      <th>#</th>
+      <th>Project Name</th>
+      <th>Application Owner Name</th>
+      <th>Audit Date and time</th>
+      <th>Audit Type</th>
+      <th>Remedial Action Duration</th>
+  </thead>
+  <tbody *ngFor="let audit of apiResponse;let i=index">
+  <tr>  
+      <td>{{i+1}}</td>              
+      <td>{{audit["projectName"]}}</td>
+      <td>{{audit["applicationOwnerName"]}}</td>
+      <td>{{audit["auditDate"] | date:'dd-MM-yyyy hh:mm:ss a':'+0530'}}</td>
+      <td>{{audit["auditType"]}}</td>
+      <td>{{audit["remedialActionDuration"]}}</td>
+  </tr>    
+  </tbody>
+</table>   -->
+        
+
+  

@@ -1,0 +1,23 @@
+<!-- header starts --> 
+<nav class="navbar navbar-expand-lg fixed-top navbar-light">
+    <div class="container-fluid">
+       <a class="navbar-brand text-white logo-font"  routerLink="/"><i class="bi bi-file-earmark-check text-white px-1"></i>AuditAssist</a>
+       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+       </button>
+       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link text-white" routerLink="/"><i class="bi bi-speedometer2 px-1"></i>Dashboard</a>
+          <a class="nav-item nav-link text-white" routerLink="/auditType"><i class="bi bi-pencil-square px-1"></i>Create New Audit</a>
+          <a class="nav-item nav-link text-white" routerLink="/auditSeverity"><i class="bi bi-eye px-1"></i>View Status</a>
+        </div>
+        </div>
+       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <form class="w-100">
+             <a class="navbar-brand text-black float-end d-block text-white" routerLink="/login" *ngIf="!isUserAuthenticated()"><i class="bi bi-arrow-right-circle px-1"></i>Login</a>
+             <a class="navbar-brand text-black float-end d-block logout text-white" (click)="logOut()" *ngIf="isUserAuthenticated()"><i class="bi bi-arrow-left-circle px-1"></i>Logout</a>
+          </form>
+       </div>
+    </div>
+  </nav> 
+  <!-- header ends -->

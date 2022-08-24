@@ -1,0 +1,77 @@
+<app-navbar></app-navbar>
+<main class="padding_top background">
+    <form #auditTypeForm="ngForm" (ngSubmit)="questions(auditTypeForm)">
+    <div class="container-fluid">
+    <h4 class="text-center txt-blue"><span class="box-icon img_bg"
+      ><i class="bi bi-check2-circle text-white"></i
+    ></span>Choose audit type</h4>
+    <p class="text-center">We offer audit assistance for the below categories</p>
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col">
+          <div class="card">
+            <div class="card-body text-center">
+              <h5 class="card-title txt-blue"><span class="box-icon img_bg"
+                ><i class="bi bi-info-circle text-white"></i
+              ></span> Internal</h5>
+              <p class="card-text color-blue">Internal audits help executives and stakeholders get an accurate understanding of a company's fitness and make your business more appealing to investors.</p>
+              <div class="form-check center-content">
+                <input type="radio" class="form-check-input" id="control_01" name="AuditType" value="Internal" [(ngModel)] = 'auditType'>
+                <label class="form-check-label px-2 color-blue" for="control_01">Proceed with internal audit</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <div class="card-body text-center">
+              <h5 class="card-title txt-blue"><span class="box-icon img_bg"
+                ><i class="bi bi-info-circle text-white"></i
+              ></span> PayRoll</h5>
+              <p class="card-text color-blue">A payroll audit examines your business’s payroll processes accuracy. Conducting internal payroll audits helps prevent possible external audits in the future.</p>
+              <div class="form-check center-content">
+                <input class="form-check-input" type="radio" id="control_02" name="AuditType" value="PayRoll" [(ngModel)] = 'auditType'>
+                <label class="form-check-label px-2 color-blue" for="control_02">Proceed with payroll audit
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <div class="card-body text-center">
+              <h5 class="card-title txt-blue"><span class="box-icon img_bg"
+                ><i class="bi bi-info-circle text-white"></i
+              ></span> SOX</h5>
+              <p class="card-text color-blue">An SOX compliance audit focuses on financial records and operational controls. Payroll, finance and IT departments may undergo this type of audit.</p>
+              <div class="form-check center-content">
+                <input class="form-check-input" type="radio"id="control_03" name="AuditType" value="SOX" [(ngModel)] = 'auditType'>
+                <label class="form-check-label px-2 color-blue" for="control_03">Proceed with SOX audit
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <div class="card-body text-center">
+              <h5 class="card-title txt-blue"><span class="box-icon img_bg"
+                ><i class="bi bi-info-circle text-white"></i
+              ></span> Financial</h5>
+              <p class="card-text color-blue">Financial audits focus specifically on an organization's financial status and verifies a company’s records, including expenses, revenue, investments and assets.</p>
+              <div class="form-check center-content">
+                <input class="form-check-input" type="radio" id="control_04" name="AuditType" value="Financial" [(ngModel)] = 'auditType'>
+                <label class="form-check-label px-2 color-blue" for="control_04">Proceed with financial audit
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center my-4">
+      <input type="submit" value="Start Audit" class="btn btn-success" [disabled]="!auditTypeForm.valid"/>
+      </div>
+    </div>
+    </form>
+</main>
+<app-footer></app-footer>
+

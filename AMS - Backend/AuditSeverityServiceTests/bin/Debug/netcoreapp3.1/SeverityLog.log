@@ -1,0 +1,11 @@
+INFO  08:57:50 Application started. Press Ctrl+C to shut down.
+INFO  08:57:50 Hosting environment: Development
+INFO  08:57:50 Content root path: C:\AuditManagementSystem\Audit-Management-System_backend\Audit-Management-system-master\AuditSeverityService
+INFO  09:06:02 AUDIT SEVERITY SERVICE STARTS
+INFO  09:06:02 Status and action attribute set process initiated
+INFO  09:06:02 Status and action set method of AuditSeverityProvider called
+INFO  09:06:02 GetCountOfNosAllowed method of AuditSeverityRepo called
+INFO  09:06:02 InterServiceCommunicationBegins
+ERROR 09:06:06 Bad Request - 400
+INFO  09:06:06 AUDIT SEVERITY PROCESS ENDS
+INFO  09:06:06 ----------------------------------------------------------------

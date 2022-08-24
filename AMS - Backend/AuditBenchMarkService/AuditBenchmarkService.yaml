@@ -1,0 +1,33 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auditbenchmarkservice-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: AuditBenchmarkService
+  template:
+    metadata:
+      labels:
+        app: AuditBenchmarkService
+    spec:
+      containers:
+      - name:  benchmarkserviceCR
+        image: benchmarkservicecr.azurecr.io/benchmarkserviceserviceimage:latest
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+      - name: webapisvcsecret
+ 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: auditbenchmarkservice
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: AuditBenchmarkService

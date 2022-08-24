@@ -1,0 +1,112 @@
+<app-navbar></app-navbar>
+<form #showQuestionsForm="ngForm" (ngSubmit)="getSeverity(showQuestionsForm)" class="container-fluid">
+  <p class="padding_top">
+  <a routerLink="/auditType" class="mb-1 btn btn-primary"><i class="bi bi-arrow-left-circle"></i> Go back to select audit type</a></p>
+  <h5 style="font-weight:bold" class=" txt-blue mb-1"><span class="box-icon img_bg"
+    ><i class="bi bi-pencil-square text-white"></i
+  ></span> Fill up the below details to proceed with {{details["AuditType"]}} audit</h5>
+    <div class="row py-1">
+        <div class="col-lg-4">
+          <div class="mb-3">
+           <label for="projname" class="form-label font-weight color-blue">Project Name</label>
+            <input type="text" class="form-control" id="projname" name="projectname" placeholder="Project Name" [(ngModel)]="details.ProjectName" #pname="ngModel" required pattern="^[A-Za-z ]*$" [ngClass]="{ 'is-invalid': showQuestionsForm.submitted && pname.errors }">
+          <div *ngIf="!pname?.valid && (pname?.dirty || pname?.touched)" class="text-danger error-msgs">
+            <div *ngIf="pname.errors.required">
+              Project Name is required
+            </div>
+            <div *ngIf="pname.errors.pattern">
+              Invalid Project Name
+            </div>
+          </div>
+        </div>
+
+        </div>
+          <div class="col-lg-4">
+          <div class="mb-3">
+           <label for="projman" class="form-label font-weight color-blue">Project Manager Name</label>
+            <input type="text" class="form-control" id="projman" name="projectmanagername" placeholder="Project Manager Name" #pmname="ngModel" [(ngModel)]="details.ProjectManagerName" required pattern="^[A-Za-z ]*$" [ngClass]="{ 'is-invalid': showQuestionsForm.submitted && pname.errors }">
+            <div *ngIf="!pmname?.valid && (pmname?.dirty || pmname?.touched)" class="text-danger error-msgs">
+              <div *ngIf="pmname.errors.required">
+                Project Manager Name is required
+              </div>
+              <div *ngIf="pmname.errors.pattern">
+                Invalid Project Manager Name
+              </div>
+            </div>
+          </div>
+        </div>
+          <div class="col-lg-4">
+           <div class="mb-3">
+           <label for="appowner" class="form-label font-weight color-blue">Application Owner Name</label>
+           <input type="text" class="form-control" id="appowner" name="appownername" placeholder="Application Owner Name" #aoname="ngModel" [(ngModel)]="details.ApplicationOwnerName"required pattern="^[A-Za-z ]*$" [ngClass]="{ 'is-invalid': showQuestionsForm.submitted && pname.errors }">
+           <div *ngIf="!aoname?.valid && (aoname?.dirty || aoname?.touched)" class="text-danger error-msgs">
+            <div *ngIf="aoname.errors.required">
+              Application Owner Name is required
+            </div>
+            <div *ngIf="aoname.errors.pattern">
+              Invalid Application Owner Name
+            </div>
+          </div>
+         </div>
+        </div>
+      </div>
+      <div class="card mb-3">          
+        <div class="card-body">
+          <h5 style="font-weight:bold" class="txt-blue mb-1"><span class="box-icon img_bg"
+            ><i class="bi bi-check2-circle text-white"></i
+          ></span> Audit Details</h5>
+            <div class="container-fluid">
+              <div class="row">
+            </div>
+            <div>
+              <p class="font-weight mb-0">{{auditQuestions[0]}}</p>
+              <div class="box mb-2">
+                  <input type="radio" id="q1y" name="radio1" [(ngModel)] = "checkresponse[0]" required value="0" />
+                  <label for="q1y" class="px-2">Yes</label>
+          
+                  <input type="radio" id="q1n" name="radio1" [(ngModel)] = "checkresponse[0]" value="1" />
+                  <label for="q1n" class="px-2">No</label>
+              </div>
+          
+              <p class="font-weight mb-0">{{auditQuestions[1]}}</p>
+              <div class="box mb-2">
+                  <input type="radio" id="q2y" name="radio2" [(ngModel)] = "checkresponse[1]" required value="0" />
+                  <label for="q2y" class="px-2">Yes</label>
+          
+                  <input type="radio" id="q2n" name="radio2" [(ngModel)] = "checkresponse[1]" value="1" />
+                  <label for="q2n" class="px-2">No</label>
+              </div>
+          
+              <p class="font-weight mb-0">{{auditQuestions[2]}}</p>
+              <div class="box mb-2">
+                  <input type="radio" id="q3y" name="radio3" [(ngModel)] = "checkresponse[2]" required value="0" />
+                  <label for="q3y" class="px-2">Yes</label>
+          
+                  <input type="radio" id="q3n" name="radio3" [(ngModel)] = "checkresponse[2]" value="1" />
+                  <label for="q3n" class="px-2">No</label>
+              </div>
+          
+              <p class="font-weight mb-0">{{auditQuestions[3]}}</p>
+              <div class="box mb-2">
+                  <input type="radio" id="q4y" name="radio4" [(ngModel)] = "checkresponse[3]" required value="0" />
+                  <label for="q4y" class="px-2">Yes</label>
+          
+                  <input type="radio" id="q4n" name="radio4" [(ngModel)] = "checkresponse[3]" value="1" />
+                  <label for="q4n" class="px-2">No</label>
+              </div>
+        
+              <p class="font-weight mb-0">{{auditQuestions[4]}}</p>  
+              <div class="box mb-2">
+                  <input type="radio" id="q5y" name="radio5" [(ngModel)] = "checkresponse[4]" required value="0" />
+                  <label for="q5y" class="px-2">Yes</label>
+          
+                  <input type="radio" id="q5n" name="radio5" [(ngModel)] = "checkresponse[4]" value="1" />
+                  <label for="q5n" class="px-2">No</label>
+              </div>
+            </div>
+            <input type="submit" value="Submit Audit" class="btn btn-success" [disabled]="!showQuestionsForm.valid" id="showbutton" />
+        </div> 
+     </div>
+    </div>
+</form>
+<app-footer></app-footer>

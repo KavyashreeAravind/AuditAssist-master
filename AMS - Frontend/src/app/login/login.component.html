@@ -1,0 +1,172 @@
+<!-- header starts -->
+<nav class="navbar navbar-expand-lg fixed-top navbar-light" style="background-color: #6e58a05d;">
+  <div class="container-fluid font-weight-bold">
+     <a class="navbar-brand text-white" routerLink="/"><i class="bi bi-file-earmark-check px-1"></i>AuditAssist</a>
+     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+     <span class="navbar-toggler-icon"></span>
+     </button>
+     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <form class="w-100">
+           <a class="navbar-brand text-black float-end d-block text-white" routerLink="/login" *ngIf="!isUserAuthenticated()"><i class="bi bi-arrow-right-circle px-1"></i>Login</a>
+           <a class="navbar-brand text-black float-end d-block logout text-white" routerLink="/login" *ngIf="isUserAuthenticated()"><i class="bi bi-arrow-left-circle px-1"></i>Logout</a>
+        </form>
+     </div>
+  </div>
+</nav>
+<!-- header ends -->
+
+<!-- login starts -->
+
+<!-- page section starts -->
+<section class="w-100 aligncenter">
+<div class="container-fluid pageCenter">
+  <div class="area">
+    <ul class="circles">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+  <div class="row">
+    <div class="col-lg-6">
+      <img src="assets/img/auditimage.png" class="img-fluid" alt="logo_img">
+    </div>
+
+     <div class="col-lg-6 loginInfo card-box">
+
+      <h4 class="txt-blue logo-font"><i class="bi bi-pencil-square px-1"></i>AuditAssist</h4>
+      <p class="mb-5">Manage your audits in a single go!</p>
+        <div class="card mb-3 form-control">        
+           <div class="card-body">
+            <h6 class="txt-blue login-title">Login</h6>
+              <form #loginForm="ngForm" novalidate (ngSubmit)="loginForm.form.valid && login(loginForm)">
+                <div *ngIf="invalidLogin" class="alert alert-danger p-1">Username or password does not exist.</div>
+                <div class="form-floating mb-3 input-group">
+                  <span class="input-group-text" id="basic-addon1"><i class="bi bi-envelope"></i></span>
+                  <input type="email" class="form-control" id="email" name ="email" placeholder="name@example.com" [(ngModel)]="cred.Email" required email #email="ngModel" [ngClass]="{ 'is-invalid': loginForm.submitted && email.errors }">
+                  <label for="email">Email address</label>
+                </div>
+                <div *ngIf="!email?.valid && (email?.dirty || email?.touched)" class="text-danger error-msgs">
+                  <div *ngIf="email.errors.required">
+                    Email is required
+                  </div>
+                  <div *ngIf="email.errors.email">
+                    Invalid Email Address
+                  </div>
+                </div>
+                <div class="form-floating mb-3 input-group">
+                  <span class="input-group-text" id="basic-addon1"><i class="bi bi-lock"></i></span>
+                  <input type="password" class="form-control" id="password" name ="password" placeholder="Password" [(ngModel)]="cred.Password" required minlength="6" maxlength="20" #password="ngModel" [ngClass]="{ 'is-invalid': loginForm.submitted && password.errors }">
+                  <label for="password">Password</label>
+                </div>
+                <div *ngIf="!password?.valid && (password?.dirty || password?.touched)" class="text-danger error-msgs">
+                  <div *ngIf="password.errors.required">
+                   Password is required
+                  </div>
+                  <div *ngIf="password.errors.minlength">
+                    Minimum length should be 6 characters.
+                  </div>
+                  <div *ngIf="password.errors.maxlength">
+                    Maximum length should be 20 characters.
+                  </div>
+                </div>
+                 <button type="submit" class="btn btn-lg btn-primary btn-green font14" [disabled]="!loginForm.valid">Login</button>
+              </form>
+           </div> 
+        </div> 
+     </div>
+  </div>
+  <app-footer></app-footer>
+</div>
+<!-- page section ends -->
+</section>
+<!-- login ends -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container">
+    <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+      <h2>Login</h2>
+        <div *ngIf="invalidLogin" class="alert alert-danger">Invalid username or password.</div>
+        <br/>
+        <label for="username">Email address</label>
+        <input type="email" id="Email" name="Email" [(ngModel)]="cred.Email" 
+          class="form-control" placeholder="User Name" required>
+        <br/>
+        <label for="password">Password</label>
+        <input type="password" id="Password" name="Password" [(ngModel)]="cred.Password" 
+          class="form-control" placeholder="Password" required>
+        <br/>
+        <button class="btn btn-lg btn-primary" type="submit" [disabled]="!loginForm.valid">Log in</button>
+    </form>
+  </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <form #loginForm="ngForm" ngNativeValidate (ngSubmit)="onSubmit(loginForm)">
+<div class="row">
+<div style="width:100%">
+<div class="form-group">
+    <label for="emailId">Email</label>
+    <input type="email" name="Email" [(ngModel)]="cred.Email" required/>
+</div>
+<div class="form-group">
+    <label for="pwd">Password</label>
+    <input type="password" name="Password" [(ngModel)]="cred.Password" required/>
+</div>
+<div class="form-group">
+    <input type="submit" value="Login" class="btn btn-primary">
+</div>
+</div>
+</div>
+</form>
+ -->
+
+

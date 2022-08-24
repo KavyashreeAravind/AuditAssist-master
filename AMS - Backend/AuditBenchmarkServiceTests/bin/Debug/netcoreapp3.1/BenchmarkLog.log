@@ -1,0 +1,13 @@
+INFO  08:50:16 Application started. Press Ctrl+C to shut down.
+INFO  08:50:16 Application started. Press Ctrl+C to shut down.
+INFO  08:50:16 Hosting environment: Development
+INFO  08:50:16 Hosting environment: Development
+INFO  08:50:16 Content root path: C:\AuditManagementSystem\Audit-Management-System_backend\Audit-Management-system-master\AuditBenchMarkService
+INFO  08:50:16 Content root path: C:\AuditManagementSystem\Audit-Management-System_backend\Audit-Management-system-master\AuditBenchMarkService
+INFO  08:50:41 AUDIT BENCH MARK SERVICE STARTED
+INFO  08:50:41 Audit Benchmark process initiated !!
+INFO  08:50:41 GetNoCount of BenchMarkProvider has been called
+INFO  08:50:41 GetNoCount of BenchMarkRepo has been called
+ERROR 08:50:41 Audit Benchmark process completed. No count delivered to AuditSeverityService
+INFO  08:50:41 AUDIT BENCH MARK SERVICE ENDS
+INFO  08:50:41 

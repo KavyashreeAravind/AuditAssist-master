@@ -1,0 +1,33 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: authorzationservice-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: AuthorizationService
+  template:
+    metadata:
+      labels:
+        app: AuthorizationService
+    spec:
+      containers:
+      - name:  authorizationservicecr
+        image: authorizationamscr.azurecr.io/authorizationserviceserviceimage:latest
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+      - name: webapisvcsecret
+ 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: authorizationservicesvc
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: AuthorizationService

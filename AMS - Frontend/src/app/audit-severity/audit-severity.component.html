@@ -1,0 +1,155 @@
+<app-navbar></app-navbar>
+
+<div *ngIf="!(isGreen() || isRed() || isAmber())" class="no-data">
+    <div class="alert alert-danger p-2" role="alert">
+        <h4 class="mb-0"><i class="bi bi-x-circle-fill"></i> No Data Found</h4>
+      </div>
+    
+      <p class="color-blue text-center">
+        Please create new audit to view project status.
+      </p>
+    <img src="assets/img/redirect.png" alt="Redirect">
+</div>
+<div *ngIf="isGreen()" class="container-fluid margin_top">
+    <div class="card">
+    <div class="card-body">
+    <div class="row">
+      <div class="col-md-4">
+        <img src="assets/img/green-status.png" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+          <h5 class="card-title">Project Status</h5>
+          <table class="card-text table table-hover" id="list">
+            <tbody>
+            <tr>
+                <th>Project Name</th>
+                <td>{{apiResponse.projectName}}</td>
+            </tr>
+            <tr>
+                <th>Project Manager Name</th>
+                <td>{{apiResponse.projectManagerName}}</td>
+            </tr>
+            <tr>
+                <th>Application Owner Name</th>
+                <td>{{apiResponse.applicationOwnerName}}</td>
+            </tr>
+            <tr>
+                <th>Audit Date and time</th>
+                <td>{{apiResponse.auditDate | date:'dd-MM-yyyy hh:mm:ss a':'+0530'}}</td>
+            </tr>
+            <tr>
+                <th>Audit Type</th>
+                <td>{{apiResponse.auditType}}</td>
+            </tr>
+            <tr>
+                <th>Remedial Action Duration</th>
+                <td>{{apiResponse.remedialActionDuration}}</td>
+            </tr>
+            <tr>
+                <th>Project Execution Status</th>
+                <td style="color:green"><b>{{apiResponse.projectExecutionStatus}}</b></td>
+            </tr>
+            </tbody>
+        </table>  
+        </div>        
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="isAmber()" class="container-fluid margin_top">
+    <div class="card">
+    <div class="card-body">
+    <div class="row">
+      <div class="col-md-4">
+        <img src="assets/img/amber-status.png" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+          <h5 class="card-title">Project Status</h5>
+          <table class="card-text table table-hover" id="list">
+            <tbody>
+            <tr>
+                <th>Project Name</th>
+                <td>{{apiResponse.projectName}}</td>
+            </tr>
+            <tr>
+                <th>Project Manager Name</th>
+                <td>{{apiResponse.projectManagerName}}</td>
+            </tr>
+            <tr>
+                <th>Application Owner Name</th>
+                <td>{{apiResponse.applicationOwnerName}}</td>
+            </tr>
+            <tr>
+                <th>Audit Date and time</th>
+                <td>{{apiResponse.auditDate | date:'dd-MM-yyyy hh:mm:ss a':'+0530'}}</td>
+            </tr>
+            <tr>
+                <th>Audit Type</th>
+                <td>{{apiResponse.auditType}}</td>
+            </tr>
+            <tr>
+                <th>Remedial Action Duration</th>
+                <td>{{apiResponse.remedialActionDuration}}</td>
+            </tr>
+            <tr>
+                <th>Project Execution Status</th>
+                <td style="color:orange"><b>{{apiResponse.projectExecutionStatus}}</b></td>
+            </tr>
+            </tbody>
+        </table>  
+        </div>        
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="isRed()" class="container-fluid margin_top">
+    <div class="card">
+    <div class="card-body">
+    <div class="row">
+      <div class="col-md-4">
+        <img src="assets/img/red-status.png" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+          <h5 class="card-title">Project Status</h5>
+          <table class="card-text table table-hover" id="list">
+            <tbody>
+            <tr>
+                <th>Project Name</th>
+                <td>{{apiResponse.projectName}}</td>
+            </tr>
+            <tr>
+                <th>Project Manager Name</th>
+                <td>{{apiResponse.projectManagerName}}</td>
+            </tr>
+            <tr>
+                <th>Application Owner Name</th>
+                <td>{{apiResponse.applicationOwnerName}}</td>
+            </tr>
+            <tr>
+                <th>Audit Date and time</th>
+                <td>{{apiResponse.auditDate | date:'dd-MM-yyyy hh:mm:ss a':'+0530'}}</td>
+            </tr>
+            <tr>
+                <th>Audit Type</th>
+                <td>{{apiResponse.auditType}}</td>
+            </tr>
+            <tr>
+                <th>Remedial Action Duration</th>
+                <td>{{apiResponse.remedialActionDuration}}</td>
+            </tr>
+            <tr>
+                <th>Project Execution Status</th>
+                <td style="color:red"><b>{{apiResponse.projectExecutionStatus}}</b></td>
+            </tr>
+            </tbody>
+        </table>  
+        </div>        
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+
+

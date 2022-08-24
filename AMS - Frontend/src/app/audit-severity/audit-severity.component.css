@@ -1,0 +1,12 @@
+.img-fluid{
+    padding-top:65px;
+    padding-left:65px;
+}
+
+.no-data{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+}
